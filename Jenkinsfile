@@ -6,12 +6,16 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'yarn && yarn test'
+                sh '''#!/bin/bash -l
+                yarn && yarn test
+                '''
             }
         }
         stage('Build') {
             steps {
-                sh 'yarn build'
+                sh '''#!/bin/bash -l
+                yarn build
+                '''
             }
         }
         stage('Deploy Development') {
